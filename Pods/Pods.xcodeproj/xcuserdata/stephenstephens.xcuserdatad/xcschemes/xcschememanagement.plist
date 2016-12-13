@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-SimpleFlickrPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SimpleFlickrPhotoBrowserTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SimpleFlickrPhotoBrowserUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Siesta.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>109B1F41AC074D421EC36D41CF5F233C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BC7BD3E483F2F399F4722CC6847C177</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB9B3AA38925DAF1F6434F777DC652BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF75874A59540969DB5B0E0A1A5D3C13</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2C7C139D2F4A41646BA75A1E5CF31A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

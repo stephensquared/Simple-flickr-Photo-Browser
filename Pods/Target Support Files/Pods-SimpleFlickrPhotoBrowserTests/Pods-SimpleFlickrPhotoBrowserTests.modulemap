@@ -1,0 +1,6 @@
+framework module Pods_SimpleFlickrPhotoBrowserTests {
+  umbrella header "Pods-SimpleFlickrPhotoBrowserTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
