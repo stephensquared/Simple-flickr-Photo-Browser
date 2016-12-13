@@ -1,10 +1,10 @@
 
 
-# Simple-flickr-Photo-Browser
+## Simple-flickr-Photo-Browser
 This app allows you to view photos posted as public on the flickr website.  The app pulls from flickr's "interesting" photos and also lets you perform text searches.
 
 
-# Contributors
+## Contributors
 
 Stephen Stephens
 
