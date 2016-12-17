@@ -13,6 +13,10 @@ import SwiftyJSON
 
 @testable import SimpleFlickrPhotoBrowser
 
+enum jsonParsingError: Error {
+    case generalError
+}
+
 class SimpleFlickrPhotoBrowserTests: XCTestCase {
     
     override func setUp() {
@@ -22,57 +26,107 @@ class SimpleFlickrPhotoBrowserTests: XCTestCase {
         let testImage = RemoteImageView()
         testImage.imageURL = "http://farm2.staticflickr.com/1103/567229075_2cf8456f01_n.jpg"
         */
-        
-        // Initialize the FlickApi to search for interesting photos.
-        // This triggers the photoListResource didSet listener and the resource is updated.
-        //var photoListResource = FlickrApi.interestingPhotos
-        
-        // Assert that the resource initialized properly.
-       // XCTAssertTrue(photoListResource != nil)
-        //
+
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+    /// A sanity check to make sure that the simple JSON text in the file correctly parses
+    /// uning the built in JSONSerialization tool.
+    func testBuiltInJsonPhotoParse(){
+        
+        // Sample data is stored in the SinglePhotoJsonDataSample.json file
+        let filepath = Bundle.main.path(forResource: "SinglePhotoJsonDataSample", ofType: ".json")
+        
+        do {
+            // Load and parse the JSON data
+            let fileContents = try String(contentsOfFile: filepath!)
+            let data = fileContents.data(using: .utf8)!
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
+
+            if let idValue = json?["id"] as? String {
+                XCTAssertTrue(idValue == "31313032270")
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect ID value")
+            }
+            
+            if let idValue = json?["owner"] as? String {
+                XCTAssertTrue(idValue == "33573751@N04")
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect owner value")
+            }
+            
+            if let idValue = json?["secret"] as? String {
+                XCTAssertTrue(idValue == "ffbc3c1f5e")
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect secret value")
+            }
+            
+            if let idValue = json?["server"] as? String {
+                XCTAssertTrue(idValue == "159")
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect server value")
+            }
+            
+            if let idValue = json?["farm"] as? Int {
+                XCTAssertTrue(idValue == 1)
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect farm value")
+            }
+            
+            if let idValue = json?["title"] as? String {
+                XCTAssertTrue(idValue == "Magnificent Hummingbird (Eugenes fulgens) (EXPLORE December 17, 2016) - Please View Large")
+            } else {
+                XCTFail("BuiltInJsonPhotoParse fail: Incorrect title value")
+            }
+
+        } catch {
+            XCTFail("JSON Test file (SinglePhotoJsonDataSample.JSON) not loading properly.")
+        }
+    }
     
-//    func testJsonParsing01() {
-//        
-//        enum jsonParsingError: Error {
-//            case generalError
-//        }
-//        
-//        let jsonString = "{\"id\":\"30760536664\",\"owner\":\"127597661@N02\",\"secret\":\"422037e447\",\"server\":\"457\",\"farm\":1,\"title\":\"DanLNeville: RT sflakesoftware: We'recelebratinGingerbreadHouseDaatnowflakeHQ!https:fPPbAGZ2jJ\",\"ispublic\":1,\"isfriend\":0,\"isfamily\":0}"
-//        
-//        // The problem here is removing the "\" before trying to parse the JSON.
-//        // I've can't find any method in will pull them out before JSON parsing.
-//        // TODO: Maybe load a file?
-//        print(jsonString)
-//        
-//        var testPhoto: FlickrPhoto
-//
-//        do {
-//            testPhoto = try FlickrPhoto(json: JSON(jsonString))
-//            
-//            XCTAssertTrue(testPhoto.id == "30760536664")
-//            XCTAssertTrue(testPhoto.owner == "127597661@N02")
-//            XCTAssertTrue(testPhoto.secret == "422037e447")
-//            XCTAssertTrue(testPhoto.server == "457")
-//            XCTAssertTrue(testPhoto.farm == 1)
-//            XCTAssertTrue(testPhoto.title == "DanLNeville: RT sflakesoftware: We'recelebratinGingerbreadHouseDaatnowflakeHQ!https:fPPbAGZ2jJ")
-//            
-//        } catch jsonParsingError.generalError {
-//            XCTFail("JSON Parsing Test Error")
-//        } catch {
-//            XCTFail("JSON Parsing Test Error")
-//        }
-//    }
+    func testParseApiResponseSample(){
+        
+        // Sample data is stored in the SinglePhotoJsonDataSample.json file
+        let filepath = Bundle.main.path(forResource: "ApiResponseSample", ofType: ".json")
+        
+        do {
+            let fileContents = try String(contentsOfFile: filepath!)
+
+            do {
+                
+                let parsedResponse = try FlickrOuterJsonWrapper(json: JSON(fileContents))
+                    
+                if parsedResponse.stat != "ok" {
+                   XCTFail("ParseApiResponseSample fail: parsing photos is nil")
+                }
+                
+                if parsedResponse.photos == nil {
+                    XCTFail("ParseApiResponseSample fail: parsing photos is nil")
+                } else {
+                
+                    // TODO: Figure out why parsing of sample API response text isn't being parsed properly.
+                    // Why isn't this working?
+                    // Setup a SwiftyJSON example that reads from a file.
+                }
+            } catch jsonParsingError.generalError {
+                XCTFail("ParseApiResponseSample fail: JSON parsing error")
+            } catch {
+                // Need this to be exhaustive with respect to error cases.
+                XCTFail("ParseApiResponseSample fail: JSON parsing error")
+            }
+            
+        } catch {
+            XCTFail("ParseApiResponseSample fail: JSON Test file (SinglePhotoJsonDataSample.JSON) not loading properly.")
+        }
+    }
     
     func testPerformanceExample() {
-        // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            print("I Wonder how long this takes to print?")
         }
     }
     

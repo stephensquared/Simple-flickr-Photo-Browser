@@ -19,7 +19,7 @@ struct FlickrOuterJsonWrapper {
         stat = json["stat"].string
         
         // Do not try to parse if the status is fail.
-        print("stat = \(stat!) and JSON = \(json)")
+        //print("stat = \(stat!) and JSON = \(json)")
         
         if stat == "ok"{
             photos = try FlickrInnerJsonWrapper(json: json["photos"])
