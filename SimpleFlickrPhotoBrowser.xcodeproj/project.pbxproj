@@ -20,7 +20,6 @@
 		BE6974931DFF97280071BEC6 /* PhotoGalleryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6974921DFF97280071BEC6 /* PhotoGalleryItemCollectionViewCell.swift */; };
 		BE6974951DFF9ABF0071BEC6 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6974941DFF9ABF0071BEC6 /* PhotoGalleryViewController.swift */; };
 		BE6974971DFFB3640071BEC6 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6974961DFFB3640071BEC6 /* PhotoDetailViewController.swift */; };
-		BECCCA371E005C49002F8E67 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BECCCA361E005C49002F8E67 /* README.md */; };
 		BECFE1291DFB20CE009B8CFD /* FVError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFE1281DFB20CE009B8CFD /* FVError.swift */; };
 		BECFE12B1DFB3F9D009B8CFD /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFE12A1DFB3F9D009B8CFD /* FlickrApi.swift */; };
 		BEDEDD521DF9BEAC0079CCBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD511DF9BEAC0079CCBC /* AppDelegate.swift */; };
@@ -540,7 +539,6 @@
 				BE2391C71DFA1F7F0026B1D6 /* Optional+required.swift in Sources */,
 				BE6974821DFE8E670071BEC6 /* FlickrOuterJsonWrapper.swift in Sources */,
 				BE6974911DFF96450071BEC6 /* PhotoItemCommentView.swift in Sources */,
-				BECCCA371E005C49002F8E67 /* README.md in Sources */,
 				BE2391C91DFA1FCA0026B1D6 /* RequiredValueMissing.swift in Sources */,
 				BEDEDD5A1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.xcdatamodeld in Sources */,
 				BECFE1291DFB20CE009B8CFD /* FVError.swift in Sources */,
@@ -704,9 +702,10 @@
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
 				INFOPLIST_FILE = InstagramViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickerPhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -719,9 +718,10 @@
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
 				INFOPLIST_FILE = InstagramViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickerPhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
