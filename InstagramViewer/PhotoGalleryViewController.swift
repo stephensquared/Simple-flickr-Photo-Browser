@@ -85,8 +85,6 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDataSource, 
     
     var arrayOfPhotos: [FlickrPhoto] = [] {
         didSet {
-            print("Array of photos didSet. Count = \(arrayOfPhotos.count)")
-            print("Reload data.")
             photoCollectionView.reloadData()
         }
     }
@@ -152,8 +150,6 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        print("collectionView  arrayOfPhotos.count = \(arrayOfPhotos.count)")
         return arrayOfPhotos.count
     }
     
