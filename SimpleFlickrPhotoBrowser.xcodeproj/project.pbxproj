@@ -70,7 +70,7 @@
 		BE6974921DFF97280071BEC6 /* PhotoGalleryItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE6974941DFF9ABF0071BEC6 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
 		BE6974961DFFB3640071BEC6 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		BECCCA361E005C49002F8E67 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = InstagramViewer/README.md; sourceTree = "<group>"; };
+		BECCCA361E005C49002F8E67 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BECFE1281DFB20CE009B8CFD /* FVError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FVError.swift; sourceTree = "<group>"; };
 		BECFE12A1DFB3F9D009B8CFD /* FlickrApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		BEDEDD4E1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFlickrPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
