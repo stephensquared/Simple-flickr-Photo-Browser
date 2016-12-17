@@ -50,37 +50,37 @@ class SimpleFlickrPhotoBrowserTests: XCTestCase {
             if let idValue = json?["id"] as? String {
                 XCTAssertTrue(idValue == "31313032270")
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect ID value")
+                XCTFail("BuiltInJsonPhotoParse fail: ID value not parsed")
             }
             
             if let idValue = json?["owner"] as? String {
                 XCTAssertTrue(idValue == "33573751@N04")
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect owner value")
+                XCTFail("BuiltInJsonPhotoParse fail: owner value not parsed")
             }
             
             if let idValue = json?["secret"] as? String {
                 XCTAssertTrue(idValue == "ffbc3c1f5e")
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect secret value")
+                XCTFail("BuiltInJsonPhotoParse fail: secret value not parsed")
             }
             
             if let idValue = json?["server"] as? String {
                 XCTAssertTrue(idValue == "159")
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect server value")
+                XCTFail("BuiltInJsonPhotoParse fail: server value not parsed")
             }
             
             if let idValue = json?["farm"] as? Int {
                 XCTAssertTrue(idValue == 1)
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect farm value")
+                XCTFail("BuiltInJsonPhotoParse fail: farm value not parsed")
             }
             
             if let idValue = json?["title"] as? String {
                 XCTAssertTrue(idValue == "Magnificent Hummingbird (Eugenes fulgens) (EXPLORE December 17, 2016) - Please View Large")
             } else {
-                XCTFail("BuiltInJsonPhotoParse fail: Incorrect title value")
+                XCTFail("BuiltInJsonPhotoParse fail: title value not parsed")
             }
 
         } catch {
@@ -88,39 +88,106 @@ class SimpleFlickrPhotoBrowserTests: XCTestCase {
         }
     }
     
-    func testParseApiResponseSample(){
+    func testParseAnArrayUsingSwiftyJson(){
         
-        // Sample data is stored in the SinglePhotoJsonDataSample.json file
-        let filepath = Bundle.main.path(forResource: "ApiResponseSample", ofType: ".json")
+        // Example json array
+        var jsonArray: JSON = [
+            "array": [12.34, 56.78],
+            "users": [
+                [
+                    "id": 987654,
+                    "info": [
+                        "name": "jack",
+                        "email": "jack@gmail.com"
+                    ],
+                    "feeds": [98833, 23443, 213239, 23232]
+                ],
+                [
+                    "id": 654321,
+                    "info": [
+                        "name": "jeffgukang",
+                        "email": "jeffgukang@gmail.com"
+                    ],
+                    "feeds": [12345, 56789, 12423, 12412]
+                ]
+            ]
+        ]
         
-        do {
-            let fileContents = try String(contentsOfFile: filepath!)
-
-            do {
-                
-                let parsedResponse = try FlickrOuterJsonWrapper(json: JSON(fileContents))
-                    
-                if parsedResponse.stat != "ok" {
-                   XCTFail("ParseApiResponseSample fail: parsing photos is nil")
-                }
-                
-                if parsedResponse.photos == nil {
-                    XCTFail("ParseApiResponseSample fail: parsing photos is nil")
-                } else {
-                
-                    // TODO: Figure out why parsing of sample API response text isn't being parsed properly.
-                    // Why isn't this working?
-                    // Setup a SwiftyJSON example that reads from a file.
-                }
-            } catch jsonParsingError.generalError {
-                XCTFail("ParseApiResponseSample fail: JSON parsing error")
-            } catch {
-                // Need this to be exhaustive with respect to error cases.
-                XCTFail("ParseApiResponseSample fail: JSON parsing error")
-            }
+        // Getting a double from a JSON Array
+        let testDouble = jsonArray["array"][0].double
+        XCTAssertTrue(testDouble == 12.34)
+        print(testDouble!)
+        
+        // Getting an array of string from a JSON Array
+        let arrayOfString = jsonArray["users"].arrayValue.map({$0["info"]["name"]})
+        print(arrayOfString.count)
+        XCTAssertTrue(arrayOfString.count == 2)
+        
+        //Getting a string using a path to the element
+        var name = jsonArray["users",1,"info","name"].string
+        XCTAssertTrue(name! == "jeffgukang")
+        
+        //With a custom way
+        let keys: [JSONSubscriptType] = ["users", 1, "info", "name"]
+        name = jsonArray[keys].string
+        XCTAssertTrue(name! == "jeffgukang")
+        
+        //Just the same
+        name = jsonArray["users"][1]["info"]["name"].string
+        XCTAssertTrue(name! == "jeffgukang")
+        
+        //Alternatively
+        name = jsonArray["users",1,"info","name"].string
+        XCTAssertTrue(name! == "jeffgukang")
+        
+    }
+    
+    func testParseApiResponseFileUsingSwiftJson(){
+        
+        var jsonData: Data?
+        
+        if let file = Bundle.main.path(forResource: "ApiResponseSample", ofType: "json") {
             
-        } catch {
-            XCTFail("ParseApiResponseSample fail: JSON Test file (SinglePhotoJsonDataSample.JSON) not loading properly.")
+            jsonData = try? Data(contentsOf: URL(fileURLWithPath: file))
+            let json1 = JSON(data: jsonData!)
+        
+            let statString = json1["stat"].stringValue
+            XCTAssertTrue(statString == "ok")
+            
+            /*  Look at the photo object at index[1] in the JSON:
+            {"id":"30864869653","owner":"55740718@N03","secret":"1b5820f32c","server":"489","farm":1,"title":"Mist by a Smile!","ispublic":1,"isfriend":0,"isfamily":0}
+             
+            */
+            
+            let idString = json1["photos","photo",1,"id"].string
+            XCTAssertTrue(idString == "30864869653")
+
+            let ownerString = json1["photos","photo",1,"owner"].string
+            XCTAssertTrue(ownerString == "55740718@N03")
+            
+            let secretString = json1["photos","photo",1,"secret"].string
+            XCTAssertTrue(secretString == "1b5820f32c")
+            
+            let serverString = json1["photos","photo",1,"server"].string
+            XCTAssertTrue(serverString == "489")
+            
+            let farmInt = json1["photos","photo",1,"farm"].int
+            XCTAssertTrue(farmInt == 1)
+            
+            let titleString = json1["photos","photo",1,"title"].string
+            XCTAssertTrue(titleString == "Mist by a Smile!")
+            
+            let isPublicInt = json1["photos","photo",1,"ispublic"].int
+            XCTAssertTrue(isPublicInt == 1)
+            
+            let isFriendInt = json1["photos","photo",1,"isfriend"].int
+            XCTAssertTrue(isFriendInt == 0)
+            
+            let isFamilyInt = json1["photos","photo",1,"isfamily"].int
+            XCTAssertTrue(isFamilyInt == 0)
+            
+        } else {
+            XCTFail("ApiResponseSample.json failed to load properly.")
         }
     }
     
