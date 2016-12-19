@@ -41,14 +41,14 @@
 			containerPortal = BEDEDD461DF9BEAC0079CCBC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BEDEDD4D1DF9BEAC0079CCBC;
-			remoteInfo = InstagramViewer;
+			remoteInfo = SimpleFlickrPhotoBrowser;
 		};
 		BEDEDD711DF9BEAE0079CCBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BEDEDD461DF9BEAC0079CCBC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BEDEDD4D1DF9BEAC0079CCBC;
-			remoteInfo = InstagramViewer;
+			remoteInfo = SimpleFlickrPhotoBrowser;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -231,7 +231,7 @@
 				BECCCA391E005D8C002F8E67 /* SupportingFiles */,
 			);
 			name = Source;
-			path = InstagramViewer;
+			path = SimpleFlickrPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		BEDEDD681DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests */ = {
@@ -243,7 +243,7 @@
 				BE3E00651E05DDAD00525DB0 /* ApiResponseSample.json */,
 			);
 			name = SimpleFlickrPhotoBrowserTests;
-			path = InstagramViewerTests;
+			path = SimpleFlickrPhotoBrowserTests;
 			sourceTree = "<group>";
 		};
 		BEDEDD731DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests */ = {
@@ -253,7 +253,7 @@
 				BEDEDD761DF9BEAE0079CCBC /* Info.plist */,
 			);
 			name = SimpleFlickrPhotoBrowserUITests;
-			path = InstagramViewerUITests;
+			path = SimpleFlickrPhotoBrowserUITests;
 			sourceTree = "<group>";
 		};
 		E5879968A83B994424FADBB5 /* Frameworks */ = {
@@ -285,7 +285,7 @@
 			dependencies = (
 			);
 			name = SimpleFlickrPhotoBrowser;
-			productName = InstagramViewer;
+			productName = SimpleFlickrPhotoBrowser;
 			productReference = BEDEDD4E1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -306,7 +306,7 @@
 				BEDEDD671DF9BEAE0079CCBC /* PBXTargetDependency */,
 			);
 			name = SimpleFlickrPhotoBrowserTests;
-			productName = InstagramViewerTests;
+			productName = SimpleFlickrPhotoBrowserTests;
 			productReference = BEDEDD651DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -326,7 +326,7 @@
 				BEDEDD721DF9BEAE0079CCBC /* PBXTargetDependency */,
 			);
 			name = SimpleFlickrPhotoBrowserUITests;
-			productName = InstagramViewerUITests;
+			productName = SimpleFlickrPhotoBrowserUITests;
 			productReference = BEDEDD701DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -708,7 +708,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewer/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickerPhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -724,7 +724,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewer/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickerPhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -740,9 +740,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewerTests/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickrPhotoBrowserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFlickrPhotoBrowser.app/SimpleFlickrPhotoBrowser";
@@ -756,9 +756,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewerTests/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickrPhotoBrowserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFlickrPhotoBrowser.app/SimpleFlickrPhotoBrowser";
@@ -771,12 +771,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewerUITests/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowserUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickrPhotoBrowserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = InstagramViewer;
+				TEST_TARGET_NAME = SimpleFlickrPhotoBrowser;
 			};
 			name = Debug;
 		};
@@ -786,12 +786,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = BLM9BZDLM3;
-				INFOPLIST_FILE = InstagramViewerUITests/Info.plist;
+				INFOPLIST_FILE = SimpleFlickrPhotoBrowserUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SS.InstagramViewerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = SS.SimpleFlickrPhotoBrowserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = InstagramViewer;
+				TEST_TARGET_NAME = SimpleFlickrPhotoBrowser;
 			};
 			name = Release;
 		};
