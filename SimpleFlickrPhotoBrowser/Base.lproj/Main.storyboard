@@ -77,8 +77,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-Xj-PQ9" customClass="RemoteImageView" customModule="Siesta">
-                                                    <rect key="frame" x="0.0" y="4" width="150" height="150"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-Xj-PQ9" customClass="RemoteImageView" customModule="Siesta">
+                                                    <rect key="frame" x="4" y="4" width="142" height="142"/>
                                                     <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
                                                 </imageView>
                                             </subviews>
@@ -135,11 +135,11 @@
                         <viewControllerLayoutGuide type="top" id="JA5-DB-msU"/>
                         <viewControllerLayoutGuide type="bottom" id="8yd-jC-c52"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FZn-bM-ftb" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="FZn-bM-ftb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IZ-LO-UR8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IZ-LO-UR8" customClass="PhotoInfoView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Title" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWX-2W-yGI">
@@ -159,26 +159,40 @@
                                     <constraint firstAttribute="width" constant="375" id="xKZ-Q9-4vy"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjM-P9-Hqt" customClass="RemoteImageView" customModule="Siesta">
-                                <rect key="frame" x="16" y="154" width="343" height="423"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-Vm-VZv">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolderImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tjM-P9-Hqt" customClass="RemoteImageView" customModule="Siesta">
+                                        <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="423" id="ltK-dG-VPH"/>
-                                    <constraint firstAttribute="width" constant="343" id="my4-gu-IsR"/>
+                                    <constraint firstAttribute="trailing" secondItem="tjM-P9-Hqt" secondAttribute="trailing" id="BYF-Lq-co0"/>
+                                    <constraint firstItem="tjM-P9-Hqt" firstAttribute="leading" secondItem="aGi-Vm-VZv" secondAttribute="leading" id="bIl-Wh-qfX"/>
+                                    <constraint firstAttribute="bottom" secondItem="tjM-P9-Hqt" secondAttribute="bottom" id="xcg-gQ-bon"/>
+                                    <constraint firstItem="tjM-P9-Hqt" firstAttribute="top" secondItem="aGi-Vm-VZv" secondAttribute="top" id="zGC-Ve-W8b"/>
                                 </constraints>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tjM-P9-Hqt" firstAttribute="top" secondItem="4IZ-LO-UR8" secondAttribute="bottom" constant="46" id="1qQ-1b-iGe"/>
+                            <constraint firstItem="aGi-Vm-VZv" firstAttribute="leading" secondItem="FZn-bM-ftb" secondAttribute="leading" id="77V-87-GXB"/>
                             <constraint firstItem="4IZ-LO-UR8" firstAttribute="centerX" secondItem="FZn-bM-ftb" secondAttribute="centerX" id="LNx-12-uy3"/>
                             <constraint firstItem="4IZ-LO-UR8" firstAttribute="top" secondItem="JA5-DB-msU" secondAttribute="bottom" id="WmO-e7-FLk"/>
-                            <constraint firstItem="4IZ-LO-UR8" firstAttribute="centerX" secondItem="tjM-P9-Hqt" secondAttribute="centerX" id="rIp-aQ-Vym"/>
+                            <constraint firstAttribute="trailing" secondItem="aGi-Vm-VZv" secondAttribute="trailing" id="kqA-4R-D4J"/>
+                            <constraint firstItem="aGi-Vm-VZv" firstAttribute="top" secondItem="4IZ-LO-UR8" secondAttribute="bottom" id="nrR-nh-dha"/>
+                            <constraint firstItem="8yd-jC-c52" firstAttribute="top" secondItem="aGi-Vm-VZv" secondAttribute="bottom" id="oGl-ld-aVp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photo Detail" id="bAb-7I-qcq"/>
                     <connections>
+                        <outlet property="photoDetailBottomConstraint" destination="xcg-gQ-bon" id="xgO-aa-N8s"/>
                         <outlet property="photoDetailImageView" destination="tjM-P9-Hqt" id="cj5-hu-yfr"/>
+                        <outlet property="photoDetailLeadingConstraint" destination="bIl-Wh-qfX" id="oFi-Pn-n3g"/>
+                        <outlet property="photoDetailTopConstraint" destination="zGC-Ve-W8b" id="XVd-iI-1HB"/>
+                        <outlet property="photoDetailTrailingConstraint" destination="BYF-Lq-co0" id="UOq-bQ-YNQ"/>
                         <outlet property="photoTitleLabel" destination="LWX-2W-yGI" id="VgZ-tH-ctl"/>
+                        <outlet property="scrollView" destination="aGi-Vm-VZv" id="zhP-Xl-v8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ys0-ce-vLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,4 +218,7 @@
             <point key="canvasLocation" x="-3441" y="3"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlaceHolderImage.jpg" width="800" height="500"/>
+    </resources>
 </document>

@@ -116,11 +116,9 @@ class SimpleFlickrPhotoBrowserTests: XCTestCase {
         // Getting a double from a JSON Array
         let testDouble = jsonArray["array"][0].double
         XCTAssertTrue(testDouble == 12.34)
-        print(testDouble!)
         
         // Getting an array of string from a JSON Array
         let arrayOfString = jsonArray["users"].arrayValue.map({$0["info"]["name"]})
-        print(arrayOfString.count)
         XCTAssertTrue(arrayOfString.count == 2)
         
         //Getting a string using a path to the element
