@@ -59,59 +59,44 @@
                                     <constraint firstItem="oMZ-yX-dIO" firstAttribute="centerY" secondItem="3QC-1h-aa1" secondAttribute="centerY" id="jxr-fP-PNv"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YlB-DA-QB5">
-                                <rect key="frame" x="0.0" y="145" width="375" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YlB-DA-QB5">
+                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="0Nf-IJ-sCx">
-                                    <size key="itemSize" width="100" height="100"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoGalleryItemCollectionViewCell" id="zYg-gB-AsG" customClass="PhotoGalleryItemCollectionViewCell" customModule="SimpleFlickrPhotoBrowser" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-Xj-PQ9" customClass="RemoteImageView" customModule="Siesta">
-                                                    <rect key="frame" x="8" y="5" width="84" height="92"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-Xj-PQ9" customClass="RemoteImageView" customModule="Siesta">
+                                                    <rect key="frame" x="0.0" y="4" width="150" height="150"/>
                                                     <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="cM3-Xj-PQ9" secondAttribute="bottom" id="0yQ-xI-ZUQ"/>
+                                            <constraint firstItem="cM3-Xj-PQ9" firstAttribute="leading" secondItem="zYg-gB-AsG" secondAttribute="leadingMargin" id="Wbp-4h-q34"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="cM3-Xj-PQ9" secondAttribute="trailing" id="gGh-Vu-jkX"/>
+                                            <constraint firstItem="cM3-Xj-PQ9" firstAttribute="top" secondItem="zYg-gB-AsG" secondAttribute="topMargin" id="mam-0v-V0G"/>
+                                        </constraints>
                                         <edgeInsets key="layoutMargins" top="4" left="4" bottom="4" right="4"/>
-                                        <size key="customSize" width="100" height="100"/>
+                                        <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="photoImageView" destination="cM3-Xj-PQ9" id="YHr-hT-JJP"/>
                                             <segue destination="PkX-3Q-glJ" kind="show" identifier="PhotoDetailSegueIdentifier" id="nXa-jw-KLa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryItemCommentView" id="AR7-fb-WGc" customClass="PhotoItemCommentView" customModule="SimpleFlickrPhotoBrowser" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmk-rI-kDu">
-                                            <rect key="frame" x="166.5" y="15" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Zmk-rI-kDu" firstAttribute="centerX" secondItem="AR7-fb-WGc" secondAttribute="centerX" id="6rU-h8-6Ns"/>
-                                        <constraint firstItem="Zmk-rI-kDu" firstAttribute="centerY" secondItem="AR7-fb-WGc" secondAttribute="centerY" id="BD0-oo-N2I"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="photoItemCommentLabel" destination="Zmk-rI-kDu" id="ksM-BJ-Q5A"/>
-                                    </connections>
-                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="l3A-Or-2KW" id="ocu-fq-RQb"/>
                                     <outlet property="delegate" destination="l3A-Or-2KW" id="0My-5p-JkB"/>
@@ -121,14 +106,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3QC-1h-aa1" firstAttribute="centerX" secondItem="245-fG-9sm" secondAttribute="centerX" id="Bu0-fG-xwm"/>
+                            <constraint firstItem="YlB-DA-QB5" firstAttribute="top" secondItem="3QC-1h-aa1" secondAttribute="bottom" id="KGr-ok-3nO"/>
+                            <constraint firstItem="YlB-DA-QB5" firstAttribute="leading" secondItem="245-fG-9sm" secondAttribute="leading" id="Ved-xe-Vmg"/>
+                            <constraint firstAttribute="trailing" secondItem="YlB-DA-QB5" secondAttribute="trailing" id="ZKB-rN-MC1"/>
                             <constraint firstItem="3QC-1h-aa1" firstAttribute="top" secondItem="245-fG-9sm" secondAttribute="top" constant="64" id="uY5-UA-uzj"/>
+                            <constraint firstItem="hfv-yJ-ywj" firstAttribute="top" secondItem="YlB-DA-QB5" secondAttribute="bottom" id="yNF-A6-1ZP"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9gz-k2-dhf">
                         <nil key="title"/>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="YlB-DA-QB5" id="wBN-6Q-5MX"/>
                         <outlet property="searchTextBar" destination="oMZ-yX-dIO" id="HjF-mB-jEq"/>

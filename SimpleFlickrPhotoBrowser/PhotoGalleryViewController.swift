@@ -198,12 +198,14 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - UICollectionViewFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let picDimension = self.view.frame.size.width / 4.0
+        
+        let spacingWidthTotal = CGFloat(4.0 * 4.0) // 4 spacers (for 3 columns) at 4 pixels each
+        let picDimension = (self.view.frame.size.width - spacingWidthTotal) / 3.0  // Orginal = 4.0
         return CGSize(width: picDimension, height: picDimension)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let leftRightInset = self.view.frame.size.width / 40.0  //14.0
+        let leftRightInset = CGFloat(4.0) //self.view.frame.size.width / 40.0  //14.0
                 return UIEdgeInsetsMake(0, leftRightInset, 0, leftRightInset)
     }
     

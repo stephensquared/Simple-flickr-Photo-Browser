@@ -74,7 +74,7 @@ struct FlickrPhoto {
     
     func SquareThumbnailUrlString() -> String? {
         if let baseUrlString = BaseUrlString() {
-                return baseUrlString + "_s.jpg"
+                return baseUrlString + "_q.jpg"
         }
         else { return nil }
     }
