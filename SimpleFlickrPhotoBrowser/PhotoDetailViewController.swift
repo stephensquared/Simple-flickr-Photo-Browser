@@ -9,9 +9,9 @@
 import UIKit
 import Siesta
 
-
 class PhotoDetailViewController: UIViewController {
 
+    // MARK: UI Elements
     @IBOutlet weak var photoTitleLabel: UILabel!
     @IBOutlet weak var photoDetailImageView: RemoteImageView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,65 +19,41 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var photoDetailLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoDetailBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoDetailTopConstraint: NSLayoutConstraint!
-    
     var photo: FlickrPhoto?
     
-    
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         photoTitleLabel.text = photo?.title!
-        photoDetailImageView.imageURL = photo?.MediumPhotoUrlString()
+        photoDetailImageView.imageURL = photo?.GetMediumPhotoUrlString()
         scrollView.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        // Set up the correct aspect ratio for the initial view of the photo.
         setZoomScaleForPhoto(size: view.bounds.size)
     }
     
+    //** Calulate and set the correct aspect ratio for the initial view of the photo. */
     private func setZoomScaleForPhoto(size: CGSize) {
-        
         // viewDidLayoutSubviews sometimes calls this method with size = 0.
         if photoDetailImageView.bounds.width == 0.0 {
             return
         }
-        
         let widthRatio = size.width / photoDetailImageView.bounds.width
         let heightRatio = size.height / photoDetailImageView.bounds.height
         let minimumScale = min(widthRatio, heightRatio)
-        
         // The minimum scale factor that can be applied to the scroll view's content.
         scrollView.minimumZoomScale =  minimumScale
-
         // The current scale factor that will be applied to the scroll view's content.
         scrollView.zoomScale = minimumScale
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+// MARK: - UIScrollViewDelegate
 extension PhotoDetailViewController: UIScrollViewDelegate {
-    
-    /// This method returns an ImageView which will be scaled when the scroll view is pinched.
+    //** This method returns an ImageView which will be scaled when the scroll view is pinched. */
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return photoDetailImageView
     }
-    
 }

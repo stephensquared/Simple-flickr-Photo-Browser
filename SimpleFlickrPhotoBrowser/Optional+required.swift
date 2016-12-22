@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Extend the Optional type such that an error is thrown if a value is not parsed from a required field. Example usage: id = try json["id"].string.required("photo.id")
 extension Optional {
     func required(_ name: String = "<unknown>") throws -> Wrapped {
         guard let value = self else {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Error type for the JSON parsing extension to the optional type.
 struct MissingRequiredValue: Error {
     let name: String?
     let type: Any.Type

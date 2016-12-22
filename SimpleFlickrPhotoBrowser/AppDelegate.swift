@@ -17,18 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         // Set the user interface appearance
         AppearanceDefaults.applyAppearanceDefaults()
-        
         // Configure the Siesta.RemoteImageView to automatically show and hide the 
         // iOS network activity indicator for requests to load images.
-        RemoteImageView.defaultImageService.configure{$0.useNetworkActivityIndicator()}
-    
         // Note that this indicator is only displayed for image requests and not (smaller) API
         // requests. (Specified in iOS Human Interface Guidelines - UI Controls - Progress Indicators:
         // “Show this indicator only for network operations lasting more than a few seconds.” )
-        
+        RemoteImageView.defaultImageService.configure{$0.useNetworkActivityIndicator()}
         return true
     }
     

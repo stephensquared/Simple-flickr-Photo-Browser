@@ -10,7 +10,6 @@ import Siesta
 import UIKit
 
 struct AppearanceDefaults {
-    
     static let
         darkColor     = UIColor(red: 0.180, green: 0.235, blue: 0.266, alpha: 1),
         darkerColor   = UIColor(red: 0.161, green: 0.208, blue: 0.235, alpha: 1),
@@ -19,34 +18,24 @@ struct AppearanceDefaults {
         selectedColor = UIColor(red: 0.937, green: 0.400, blue: 0.227, alpha: 1),
         textColor     = UIColor(red: 0.623, green: 0.647, blue: 0.663, alpha: 1),
         boldColor     = UIColor(red: 0.906, green: 0.902, blue: 0.894, alpha: 1)
-    
     static func applyAppearanceDefaults() {
-        
         UITextField.appearance().keyboardAppearance = .dark
         UITextField.appearance().textColor = UIColor.black
         UITextField.appearance().backgroundColor = textColor
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = lightColor
-        
         UINavigationBar.appearance().barStyle = UIBarStyle.black
         UINavigationBar.appearance().barTintColor = darkColor
         UINavigationBar.appearance().tintColor = linkColor
-        
         UITableView.appearance().backgroundColor = darkerColor
         UITableView.appearance().separatorColor = UIColor.black
-        
         UITableViewCell.appearance().backgroundColor = darkerColor
         UITableViewCell.appearance().selectedBackgroundView = emptyView(withBackground: selectedColor)
-        
-        //UIButton.appearance().backgroundColor = darkColor
         UIButton.appearance().tintColor = linkColor
         UIButton.appearance().layer.cornerRadius = 5
         UIButton.appearance().layer.borderWidth = 1
-
         UISearchBar.appearance().backgroundColor = darkColor
         UISearchBar.appearance().barTintColor = darkColor
         UISearchBar.appearance().searchBarStyle = .minimal
-        
-        // Set appearance for ResourceStatusOverlay (part of Siesta)
         UILabel.appearance(whenContainedInInstancesOf: [ResourceStatusOverlay.self]).textColor = textColor
         UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [ResourceStatusOverlay.self]).activityIndicatorViewStyle = .whiteLarge
     }

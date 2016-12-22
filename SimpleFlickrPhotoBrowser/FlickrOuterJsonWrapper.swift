@@ -10,17 +10,11 @@ import Foundation
 import SwiftyJSON
 
 struct FlickrOuterJsonWrapper {
-    
     let stat: String?
     let photos: FlickrInnerJsonWrapper?
-    
     init (json: JSON) throws {
-        
         stat = json["stat"].string
-        
-        // TODO: Do not try to parse if the status is fail.
-        
-        if stat == "ok"{
+        if stat == "ok" {
             photos = try FlickrInnerJsonWrapper(json: json["photos"])
         } else {
             photos = nil

@@ -25,7 +25,7 @@ class SimpleFlickrPhotoBrowserUITests: XCTestCase {
     
     
     func testAButtonTap() {
-        let app = XCUIApplication()
+       // let app = XCUIApplication()
         
     }
     

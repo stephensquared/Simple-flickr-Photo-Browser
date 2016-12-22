@@ -9,15 +9,11 @@
 import Foundation
 
 class PhotoGalleryItem {
-    
     var itemImageUrlString: String
-    
     init(_ imageUrlString: String) {
         itemImageUrlString = imageUrlString
     }
-    
     class func newPhotoGalleryItem(_ urlString: String) -> PhotoGalleryItem {
         return PhotoGalleryItem(urlString)
     }
-    
 }

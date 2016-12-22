@@ -11,10 +11,9 @@ import UIKit
 import Siesta
 
 class PhotoGalleryItemCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var photoImageView: RemoteImageView!
     
-    func SetRemoteImageUrl(_ photo: FlickrPhoto){
-        photoImageView.imageURL = photo.SquareThumbnailUrlString()
+    func SetRemoteImageUrl(_ photo: FlickrPhoto) {
+        photoImageView.imageURL = photo.GetSquareThumbnailUrlString()
     }
 }

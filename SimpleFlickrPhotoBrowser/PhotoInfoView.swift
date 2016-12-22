@@ -8,8 +8,5 @@
 
 import UIKit
 
-class PhotoInfoView: UIView {
-
-    // This class is a placeholder that clarifies which "view" constraints are applied to in the photo detail view on the storyboard.
-
-}
+/// This class is a placeholder that clarifies which "view" constraints are applied to in the photo detail view on the storyboard.
+class PhotoInfoView: UIView { }
