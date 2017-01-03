@@ -68,6 +68,9 @@ class PhotoGalleryViewController: UIViewController, UITextFieldDelegate, Resourc
             /* SwiftyJSON consistently adds hundreds of null entries when parsing typedContent and producing this array. Therefore, truncate the array to the first [photosPerPage] entries. */
             if let tempPhotos = flickrApiOuterWrapper.photos, tempPhotos.photoArray.count > 0 {
                 arrayOfPhotos = Array(tempPhotos.photoArray.prefix(FlickrApi.photosPerPage))
+            } else {
+                // There are no photos to display
+                arrayOfPhotos = []
             }
         }
     }
@@ -127,14 +130,14 @@ extension PhotoGalleryViewController: UICollectionViewDataSource {
     
     //** Implement the header view. */
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if let photoCommentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GalleryItemCommentView", for: indexPath) as? PhotoItemCommentView {
+        if let photoCommentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoItemCommentView", for: indexPath) as? PhotoItemCommentView {
             // Casting worked fine.
             if photoRetrievalIsFromSearch {
                 photoCommentView.photoItemCommentLabel.text = "search results for \"\(FlickrApi.searchString)\""
+                searchTextBar.text = ""
             } else {
                 photoCommentView.photoItemCommentLabel.text = "recent interesting photos"
             }
-            precondition(false, "Casting to PhotoItemCommentView was unsucessful.")
             return photoCommentView
         } else {
             // Casting was unsuccessful. (Provide this option to avoid using forced conversion.)
@@ -144,9 +147,13 @@ extension PhotoGalleryViewController: UICollectionViewDataSource {
     
     /** Scroll to the top of the UICollectionView. */
     func scrollToTop(){
-        photoCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
-                                         at: .top,
-                                         animated: true)
+        if arrayOfPhotos.count > 0 {
+            photoCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                             at: .top,
+                                             animated: true)
+            // Needed to scroll and make the header text visible.
+            photoCollectionView.setContentOffset(CGPoint(x: 0.00, y: 0.00), animated: true)
+        }
     }
 }
 
