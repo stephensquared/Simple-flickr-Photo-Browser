@@ -28,7 +28,7 @@ struct FlickrPhoto {
     func GetBaseUrlString() -> String?{
         var baseUrlString = ""
         if let farmString = farm {
-            baseUrlString = "https://c\(String(farmString)).staticflickr.com/\(String(farmString))"
+            baseUrlString = "https://farm\(String(farmString)).staticflickr.com/"
         } else { return nil }
         if let serverString = server {
             baseUrlString.append("/\(serverString)")

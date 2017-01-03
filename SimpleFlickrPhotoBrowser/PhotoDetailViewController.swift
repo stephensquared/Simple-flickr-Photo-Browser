@@ -24,7 +24,11 @@ class PhotoDetailViewController: UIViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoTitleLabel.text = photo?.title!
+        if let photoTitleLabelString = photo?.title {
+            photoTitleLabel.text = photoTitleLabelString
+        } else {
+            photoTitleLabel.text = ""
+        }
         photoDetailImageView.imageURL = photo?.GetMediumPhotoUrlString()
         scrollView.delegate = self
     }

@@ -30,44 +30,51 @@ class SFPBJsonTests: XCTestCase {
     //** A sanity check to make sure that the simple JSON text in the file correctly parses using the built in JSONSerialization tool. */
     func testBuiltInJsonPhotoParse() {
         // Sample data is stored in the SinglePhotoJsonDataSample.json file
-        let filepath = Bundle.main.path(forResource: "SinglePhotoJsonDataSample", ofType: ".json")
-        do {
-            // Load and parse the JSON data
-            let fileContents = try String(contentsOfFile: filepath!)
-            let data = fileContents.data(using: .utf8)!
-            let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
-            if let idValue = json?["id"] as? String {
-                XCTAssertTrue(idValue == "31313032270")
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: ID value not parsed")
+        if let filepath = Bundle.main.path(forResource: "SinglePhotoJsonDataSample", ofType: ".json"){
+            do {
+                // Load and parse the JSON data
+                let fileContents = try String(contentsOfFile: filepath)
+                if let data = fileContents.data(using: .utf8) {
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] {
+                        if let idValue = json?["id"] as? String {
+                            XCTAssertTrue(idValue == "31313032270")
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: ID value not parsed")
+                        }
+                        if let idValue = json?["owner"] as? String {
+                            XCTAssertTrue(idValue == "33573751@N04")
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: owner value not parsed")
+                        }
+                        if let idValue = json?["secret"] as? String {
+                            XCTAssertTrue(idValue == "ffbc3c1f5e")
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: secret value not parsed")
+                        }
+                        if let idValue = json?["server"] as? String {
+                            XCTAssertTrue(idValue == "159")
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: server value not parsed")
+                        }
+                        if let idValue = json?["farm"] as? Int {
+                            XCTAssertTrue(idValue == 1)
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: farm value not parsed")
+                        }
+                        if let idValue = json?["title"] as? String {
+                            XCTAssertTrue(idValue == "Magnificent Hummingbird (Eugenes fulgens) (EXPLORE December 17, 2016) - Please View Large")
+                        } else {
+                            XCTFail("BuiltInJsonPhotoParse fail: title value not parsed")
+                        }
+                    } else {
+                        XCTFail("Unable to parse data.")
+                    }
+                }
+            } catch {
+                XCTFail("JSON Test file (SinglePhotoJsonDataSample.JSON) not loading properly.")
             }
-            if let idValue = json?["owner"] as? String {
-                XCTAssertTrue(idValue == "33573751@N04")
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: owner value not parsed")
-            }
-            if let idValue = json?["secret"] as? String {
-                XCTAssertTrue(idValue == "ffbc3c1f5e")
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: secret value not parsed")
-            }
-            if let idValue = json?["server"] as? String {
-                XCTAssertTrue(idValue == "159")
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: server value not parsed")
-            }
-            if let idValue = json?["farm"] as? Int {
-                XCTAssertTrue(idValue == 1)
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: farm value not parsed")
-            }
-            if let idValue = json?["title"] as? String {
-                XCTAssertTrue(idValue == "Magnificent Hummingbird (Eugenes fulgens) (EXPLORE December 17, 2016) - Please View Large")
-            } else {
-                XCTFail("BuiltInJsonPhotoParse fail: title value not parsed")
-            }
-        } catch {
-            XCTFail("JSON Test file (SinglePhotoJsonDataSample.JSON) not loading properly.")
+        } else {
+            XCTFail("Could not load test JSON file")
         }
     }
     
@@ -102,46 +109,60 @@ class SFPBJsonTests: XCTestCase {
         let arrayOfString = jsonArray["users"].arrayValue.map({$0["info"]["name"]})
         XCTAssertTrue(arrayOfString.count == 2)
         // Get a string using a path to the element.
-        var name = jsonArray["users",1,"info","name"].string
-        XCTAssertTrue(name! == "jeffgukang")
+        if let name1 = jsonArray["users",1,"info","name"].string {
+            XCTAssertTrue(name1 == "jeffgukang")
+        } else {
+            XCTFail("Unable to parse name from jsonArray")
+        }
         // Get the name string using the custom way.
         let keys: [JSONSubscriptType] = ["users", 1, "info", "name"]
-        name = jsonArray[keys].string
-        XCTAssertTrue(name! == "jeffgukang")
+        if let name2 = jsonArray[keys].string {
+            XCTAssertTrue(name2 == "jeffgukang")
+        } else {
+            XCTFail("Unable to parse name from jsonArray")
+        }
         // Get the name string using another custom way.
-        name = jsonArray["users"][1]["info"]["name"].string
-        XCTAssertTrue(name! == "jeffgukang")
+        if let name3 = jsonArray["users"][1]["info"]["name"].string {
+            XCTAssertTrue(name3 == "jeffgukang")
+        } else {
+            XCTFail("Unable to parse name from jsonArray")
+        }
         // Get the name string using a third custom way.
-        name = jsonArray["users",1,"info","name"].string
-        XCTAssertTrue(name! == "jeffgukang")
+        if let name4 = jsonArray["users",1,"info","name"].string {
+            XCTAssertTrue(name4 == "jeffgukang")
+        } else {
+            XCTFail("Unable to parse name from jsonArray")
+        }
     }
     
     //** Test parsing an API response from a file using SwiftyJson. */
     func testParseApiResponseFileUsingSwiftJson(){
-        var jsonData: Data?
         if let file = Bundle.main.path(forResource: "ApiResponseSample", ofType: "json") {
-            jsonData = try? Data(contentsOf: URL(fileURLWithPath: file))
-            let json1 = JSON(data: jsonData!)
-            let statString = json1["stat"].stringValue
-            XCTAssertTrue(statString == "ok")
-            let idString = json1["photos","photo",1,"id"].string
-            XCTAssertTrue(idString == "30864869653")
-            let ownerString = json1["photos","photo",1,"owner"].string
-            XCTAssertTrue(ownerString == "55740718@N03")
-            let secretString = json1["photos","photo",1,"secret"].string
-            XCTAssertTrue(secretString == "1b5820f32c")
-            let serverString = json1["photos","photo",1,"server"].string
-            XCTAssertTrue(serverString == "489")
-            let farmInt = json1["photos","photo",1,"farm"].int
-            XCTAssertTrue(farmInt == 1)
-            let titleString = json1["photos","photo",1,"title"].string
-            XCTAssertTrue(titleString == "Mist by a Smile!")
-            let isPublicInt = json1["photos","photo",1,"ispublic"].int
-            XCTAssertTrue(isPublicInt == 1)
-            let isFriendInt = json1["photos","photo",1,"isfriend"].int
-            XCTAssertTrue(isFriendInt == 0)
-            let isFamilyInt = json1["photos","photo",1,"isfamily"].int
-            XCTAssertTrue(isFamilyInt == 0)
+            if let jsonData = try? Data(contentsOf: URL(fileURLWithPath: file)) {
+                let json1 = JSON(data: jsonData)
+                let statString = json1["stat"].stringValue
+                XCTAssertTrue(statString == "ok")
+                let idString = json1["photos","photo",1,"id"].string
+                XCTAssertTrue(idString == "30864869653")
+                let ownerString = json1["photos","photo",1,"owner"].string
+                XCTAssertTrue(ownerString == "55740718@N03")
+                let secretString = json1["photos","photo",1,"secret"].string
+                XCTAssertTrue(secretString == "1b5820f32c")
+                let serverString = json1["photos","photo",1,"server"].string
+                XCTAssertTrue(serverString == "489")
+                let farmInt = json1["photos","photo",1,"farm"].int
+                XCTAssertTrue(farmInt == 1)
+                let titleString = json1["photos","photo",1,"title"].string
+                XCTAssertTrue(titleString == "Mist by a Smile!")
+                let isPublicInt = json1["photos","photo",1,"ispublic"].int
+                XCTAssertTrue(isPublicInt == 1)
+                let isFriendInt = json1["photos","photo",1,"isfriend"].int
+                XCTAssertTrue(isFriendInt == 0)
+                let isFamilyInt = json1["photos","photo",1,"isfamily"].int
+                XCTAssertTrue(isFamilyInt == 0)
+            } else {
+                XCTFail("JSON data is nil")
+            }
         } else {
             XCTFail("ApiResponseSample.json failed to load properly.")
         }

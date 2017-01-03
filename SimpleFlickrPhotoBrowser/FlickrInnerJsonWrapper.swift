@@ -13,25 +13,47 @@ struct FlickrInnerJsonWrapper {
     let page: Int
     let pages: Int
     let perpage: Int
-    let total: Int32?
+    var total: Int
     var photoArray: [FlickrPhoto]
     init (json: JSON) throws {
-        total = json["total"].int32Value
-        page = json["page"].int!
-        pages = json["pages"].int!
-        perpage = json["perpage"].int!
-        var totalInt16: Int
-        if total == nil {
-            totalInt16 = 0
-        } else if total! >= Int32(FlickrApi.photosPerPage) {
-            totalInt16 = FlickrApi.photosPerPage
+        if let pageValue = json["page"].int {
+            page = pageValue
         } else {
-            totalInt16 = Int(total!)
+            page = 0
+        }
+        if let pagesValue = json["pages"].int {
+            pages = pagesValue
+        } else {
+            pages = 0
+        }
+        if let perpageValue = json["perpage"].int {
+            perpage = perpageValue
+        } else {
+            perpage = 0
+        }
+        
+        /* The interesting photo API returns the total as an int value, while the photo search API returns the total value in quotes (as a String). */
+        if let totalValue = json["total"].int {
+            total = totalValue
+        } else if let totalAsString = json["total"].string {
+            if let totalAsInt = Int(totalAsString) {
+                total = totalAsInt
+            } else {
+                total = 0
+            }
+        } else {
+            total = 0
+        }
+        
+        if total > FlickrApi.photosPerPage {
+            total = FlickrApi.photosPerPage
         }
         photoArray = []
-        if (total != 0){
-            for n in 1...totalInt16 {
+        if total > 0 {
+            for n in 0...total {
+
                 photoArray.append(try FlickrPhoto(json: json["photo"][n]))
+                print("n = \(n) and photoArray[n].title = \(photoArray[n].title)")
             }
         }
     }

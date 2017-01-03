@@ -34,17 +34,20 @@ class PhotoGalleryViewController: UIViewController, UITextFieldDelegate, Resourc
     
     // MARK: - Photo Data Source Methods
     @IBAction func searchButtonTouched(_ sender: Any) {
-        // Don't do a search unless the search string has > 0 characters.
-        if searchTextBar.text?.characters.count == 0 {
-            return
+        if let searchTextString = searchTextBar.text {
+            if searchTextString.characters.count > 0 {
+                photoRetrievalIsFromSearch = true
+                // Re-initialize the FlickApi to search for the entered text.
+                // This triggers the photoListResource didSet listener and the resource is updated.
+                FlickrApi.searchString = searchTextString
+                photoListResource = FlickrApi.searchPhotos
+                searchTextBar.resignFirstResponder()
+                scrollToTop()
+            } else {
+                return
+            }
         } else {
-            photoRetrievalIsFromSearch = true
-            // Re-initialize the FlickApi to search for the entered text.
-            // This triggers the photoListResource didSet listener and the resource is updated.
-            FlickrApi.searchString = searchTextBar.text!
-            photoListResource = FlickrApi.searchPhotos
-            searchTextBar.resignFirstResponder()
-            scrollToTop()
+            return
         }
     }
     
@@ -60,22 +63,25 @@ class PhotoGalleryViewController: UIViewController, UITextFieldDelegate, Resourc
     
     //** Called when the resource broadcasts a change event. This usually means new data is available. */
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
+        // Refresh the array of photos
         if let flickrApiOuterWrapper: FlickrOuterJsonWrapper = photoListResource?.typedContent() {
             /* SwiftyJSON consistently adds hundreds of null entries when parsing typedContent and producing this array. Therefore, truncate the array to the first [photosPerPage] entries. */
-            let tempArrayOfPhotos = (flickrApiOuterWrapper.photos?.photoArray)!
-            arrayOfPhotos = Array(tempArrayOfPhotos.prefix(FlickrApi.photosPerPage))
+            if let tempPhotos = flickrApiOuterWrapper.photos, tempPhotos.photoArray.count > 0 {
+                arrayOfPhotos = Array(tempPhotos.photoArray.prefix(FlickrApi.photosPerPage))
+            }
         }
     }
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextBar.text = ""
         loadingStatusOverlay.embed(in: self)
         // Initialize the API resource.
-        if !photoRetrievalIsFromSearch {
-            photoListResource = FlickrApi.interestingPhotos
-        } else {
+        if photoRetrievalIsFromSearch {
             photoListResource = FlickrApi.searchPhotos
+        } else {
+            photoListResource = FlickrApi.interestingPhotos
         }
         photoCollectionView.reloadData()
     }
@@ -84,13 +90,11 @@ class PhotoGalleryViewController: UIViewController, UITextFieldDelegate, Resourc
         // Segue to detail photo view.
         if segue.identifier == "PhotoDetailSegueIdentifier" {
             // Determine the index path for the selected photo
-            var indexPath:IndexPath?
-            if (photoCollectionView.indexPathsForSelectedItems?.count)! > 0 {
-                indexPath = photoCollectionView.indexPathsForSelectedItems?[0]
-            }
-            // Set the photo object in the detail view control before segue.
-            if let detailViewController = segue.destination as? PhotoDetailViewController {
-                detailViewController.photo = arrayOfPhotos[(indexPath?.row)!]
+            if let indexPaths = photoCollectionView.indexPathsForSelectedItems, indexPaths.count > 0 {
+                // Set the photo object in the detail view control before segue.
+                if let detailViewController = segue.destination as? PhotoDetailViewController {
+                    detailViewController.photo = arrayOfPhotos[indexPaths[0].row]
+                }
             }
         }
     }
@@ -105,26 +109,37 @@ extension PhotoGalleryViewController: UICollectionViewDataSource {
     
     //** Return the total number of photos in the single section collection. */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("ArrayOfPhotos.count = \(arrayOfPhotos.count)")
         return arrayOfPhotos.count
     }
     
     //** Create cells for the collectionView */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoGalleryItemCollectionViewCell", for: indexPath) as! PhotoGalleryItemCollectionViewCell
-        // Build and set the URL for the remote image.
-        cell.SetRemoteImageUrl(arrayOfPhotos[indexPath.row])
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoGalleryItemCollectionViewCell", for: indexPath) as? PhotoGalleryItemCollectionViewCell {
+            // Casting worked fine so set the URL for the remote image.
+            cell.SetRemoteImageUrl(arrayOfPhotos[indexPath.row])
+            return cell
+        } else {
+            // Casting was unsuccessful. (Provide this option to avoid using forced conversion.)
+            precondition(false, "Casting to PhotoGalleryItemCollectionViewCell was unsucessful.")
+        }
     }
     
     //** Implement the header view. */
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let photoCommentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GalleryItemCommentView", for: indexPath) as! PhotoItemCommentView
-        if photoRetrievalIsFromSearch {
-            photoCommentView.photoItemCommentLabel.text = "search results for \"\(FlickrApi.searchString)\""
+        if let photoCommentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GalleryItemCommentView", for: indexPath) as? PhotoItemCommentView {
+            // Casting worked fine.
+            if photoRetrievalIsFromSearch {
+                photoCommentView.photoItemCommentLabel.text = "search results for \"\(FlickrApi.searchString)\""
+            } else {
+                photoCommentView.photoItemCommentLabel.text = "recent interesting photos"
+            }
+            precondition(false, "Casting to PhotoItemCommentView was unsucessful.")
+            return photoCommentView
         } else {
-            photoCommentView.photoItemCommentLabel.text = "recent interesting photos"
+            // Casting was unsuccessful. (Provide this option to avoid using forced conversion.)
+            precondition(false, "UICollectionViewCell casting was unsucessful.")
         }
-        return photoCommentView
     }
     
     /** Scroll to the top of the UICollectionView. */

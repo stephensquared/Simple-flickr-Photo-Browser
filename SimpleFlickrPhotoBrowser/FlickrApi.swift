@@ -17,7 +17,7 @@ class _FlickrApi {
     // MARK: - Configuration Properties
     /// Flickr API Key registered to Stephen Stephens.
     let flickrApiKey = "d1cc6605bd33e5045a8b26a7b2493bf7"
-    let photosPerPage = 79
+    let photosPerPage: Int = 78 // 26 rows * 3 photos per row.
     var searchString = ""
     // Make a shared service instance for the Flickr REST API
     private let flickrApiService = Service(baseURL: "https://api.flickr.com")
@@ -64,7 +64,7 @@ class _FlickrApi {
             .withParam("api_key", flickrApiKey)
             .withParam("format", "json")
             .withParam("nojsoncallback","?")
-            .withParam("per_page", String(photosPerPage))
+            .withParam("per_page", String(photosPerPage+1)) // Need the +1 because the API has a bug.
     }
     var searchPhotos: Resource {
         return flickrApiService
