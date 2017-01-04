@@ -133,7 +133,11 @@ extension PhotoGalleryViewController: UICollectionViewDataSource {
         if let photoCommentView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoItemCommentView", for: indexPath) as? PhotoItemCommentView {
             // Casting worked fine.
             if photoRetrievalIsFromSearch {
-                photoCommentView.photoItemCommentLabel.text = "search results for \"\(FlickrApi.searchString)\""
+                if arrayOfPhotos.count > 0 {
+                    photoCommentView.photoItemCommentLabel.text = "search results for \"\(FlickrApi.searchString)\""
+                } else {
+                    photoCommentView.photoItemCommentLabel.text = "no results found for \"\(FlickrApi.searchString)\""
+                }
                 searchTextBar.text = ""
             } else {
                 photoCommentView.photoItemCommentLabel.text = "recent interesting photos"
