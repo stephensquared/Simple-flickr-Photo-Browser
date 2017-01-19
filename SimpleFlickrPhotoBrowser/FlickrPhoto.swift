@@ -8,21 +8,30 @@
 
 import SwiftyJSON
 
-struct FlickrPhoto {
+public struct FlickrPhoto {
     let farm: Int?
     let id: String?
     let owner: String?
     let secret: String?
     let server: String?
     let title: String?
+    
     init (json: JSON) throws {
-        
         id = json["id"].string
         owner = json["owner"].string
         secret = json["secret"].string
         server = json["server"].string
         farm = json["farm"].int
         title = json["title"].string
+    }
+    
+    init( farm: Int?, id: String?, owner: String?, secret: String?, server: String?, title: String?) {
+        self.farm = farm
+        self.id = id
+        self.owner = owner
+        self.secret = secret
+        self.server = server
+        self.title = title
     }
     
     func GetBaseUrlString() -> String?{

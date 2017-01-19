@@ -43,6 +43,7 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMZ-yX-dIO">
                                         <rect key="frame" x="124" y="26" width="127" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="SearchTextBarAccessibilityLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="127" id="2x6-Uc-GGb"/>
                                         </constraints>

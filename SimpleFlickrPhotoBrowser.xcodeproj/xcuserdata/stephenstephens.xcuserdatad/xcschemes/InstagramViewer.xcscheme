@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BEDEDD641DF9BEAE0079CCBC"
-               BuildableName = "SimpleFlickrPhotoBrowserTests.xctest"
-               BlueprintName = "SimpleFlickrPhotoBrowserTests"
+               BuildableName = "Unit Testing.xctest"
+               BlueprintName = "Unit Testing"
                ReferencedContainer = "container:SimpleFlickrPhotoBrowser.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,28 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BEDEDD6F1DF9BEAE0079CCBC"
-               BuildableName = "SimpleFlickrPhotoBrowserUITests.xctest"
-               BlueprintName = "SimpleFlickrPhotoBrowserUITests"
+               BuildableName = "UI Testing.xctest"
+               BlueprintName = "UI Testing"
+               ReferencedContainer = "container:SimpleFlickrPhotoBrowser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BE2D50181E30163100C44587"
+               BuildableName = "PerformancTests.xctest"
+               BlueprintName = "PerformancTests"
+               ReferencedContainer = "container:SimpleFlickrPhotoBrowser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BE2D502C1E301A9600C44587"
+               BuildableName = "Performance Testing.xctest"
+               BlueprintName = "Performance Testing"
                ReferencedContainer = "container:SimpleFlickrPhotoBrowser.xcodeproj">
             </BuildableReference>
          </TestableReference>

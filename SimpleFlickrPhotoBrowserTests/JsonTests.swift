@@ -1,5 +1,5 @@
 //
-//  SFPBJsonTests.swift
+//  JsonTests.swift
 //  SimpleFlickrPhotoBrowser
 //
 //  Created by Stephen Stephens on 12/22/16.
@@ -11,13 +11,9 @@ import XCTest
 import Siesta
 import SwiftyJSON
 
-@testable import SimpleFlickrPhotoBrowser
 
-enum jsonParsingError: Error {
-    case generalError
-}
 
-class SFPBJsonTests: XCTestCase {
+class JsonTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -14,9 +14,13 @@
 		BE2391C71DFA1F7F0026B1D6 /* Optional+required.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2391C61DFA1F7F0026B1D6 /* Optional+required.swift */; };
 		BE2391C91DFA1FCA0026B1D6 /* RequiredValueMissing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2391C81DFA1FCA0026B1D6 /* RequiredValueMissing.swift */; };
 		BE2D4C151E05A7B9000C52E7 /* SinglePhotoJsonDataSample.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2D4C141E05A7B9000C52E7 /* SinglePhotoJsonDataSample.json */; };
+		BE2D50141E3014F600C44587 /* CallbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D50101E30135600C44587 /* CallbackTests.swift */; };
+		BE2D50301E301A9600C44587 /* Performance_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D502F1E301A9600C44587 /* Performance_Testing.swift */; };
+		BE2D50381E3060A200C44587 /* DataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D50371E3060A200C44587 /* DataModelTests.swift */; };
 		BE3E00661E05DDAD00525DB0 /* ApiResponseSample.json in Resources */ = {isa = PBXBuildFile; fileRef = BE3E00651E05DDAD00525DB0 /* ApiResponseSample.json */; };
+		BE4DCAFD1E2FF75300683C88 /* UITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DCAFC1E2FF75200683C88 /* UITestCase.swift */; };
 		BE5604A41E0C6BF70089EB6D /* FlickrErrorMessageExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5604A31E0C6BF70089EB6D /* FlickrErrorMessageExtractor.swift */; };
-		BE5604A61E0C6D490089EB6D /* SFPBJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5604A51E0C6D490089EB6D /* SFPBJsonTests.swift */; };
+		BE5604A61E0C6D490089EB6D /* JsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5604A51E0C6D490089EB6D /* JsonTests.swift */; };
 		BE6974821DFE8E670071BEC6 /* FlickrOuterJsonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6974811DFE8E670071BEC6 /* FlickrOuterJsonWrapper.swift */; };
 		BE6974851DFEF72C0071BEC6 /* FlickrInnerJsonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6974841DFEF72C0071BEC6 /* FlickrInnerJsonWrapper.swift */; };
 		BE69748F1DFF884D0071BEC6 /* PhotoGalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69748E1DFF884D0071BEC6 /* PhotoGalleryItem.swift */; };
@@ -31,14 +35,20 @@
 		BEDEDD5A1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD581DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.xcdatamodeld */; };
 		BEDEDD5C1DF9BEAC0079CCBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDEDD5B1DF9BEAC0079CCBC /* Assets.xcassets */; };
 		BEDEDD5F1DF9BEAC0079CCBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDEDD5D1DF9BEAC0079CCBC /* LaunchScreen.storyboard */; };
-		BEDEDD6A1DF9BEAE0079CCBC /* SFPBPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD691DF9BEAE0079CCBC /* SFPBPerformanceTests.swift */; };
-		BEDEDD751DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD741DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.swift */; };
+		BEDEDD751DF9BEAE0079CCBC /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD741DF9BEAE0079CCBC /* UITests.swift */; };
 		BEDEDD831DF9CA450079CCBC /* AppearanceDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDEDD821DF9CA450079CCBC /* AppearanceDefaults.swift */; };
 		BEEB9FD61E09845300FF613F /* PlaceHolderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEEB9FD51E09845300FF613F /* PlaceHolderImage.jpg */; };
 		E6474939CDE935139205562C /* Pods_SimpleFlickrPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39DD32F6856745106FEB1B1 /* Pods_SimpleFlickrPhotoBrowser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BE2D50321E301A9600C44587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEDEDD461DF9BEAC0079CCBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEDEDD4D1DF9BEAC0079CCBC;
+			remoteInfo = SimpleFlickrPhotoBrowser;
+		};
 		BEDEDD661DF9BEAE0079CCBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BEDEDD461DF9BEAC0079CCBC /* Project object */;
@@ -68,9 +78,15 @@
 		BE2391C61DFA1F7F0026B1D6 /* Optional+required.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+required.swift"; sourceTree = "<group>"; };
 		BE2391C81DFA1FCA0026B1D6 /* RequiredValueMissing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredValueMissing.swift; sourceTree = "<group>"; };
 		BE2D4C141E05A7B9000C52E7 /* SinglePhotoJsonDataSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SinglePhotoJsonDataSample.json; sourceTree = "<group>"; };
+		BE2D50101E30135600C44587 /* CallbackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackTests.swift; sourceTree = "<group>"; };
+		BE2D502D1E301A9600C44587 /* Performance Testing.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Performance Testing.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2D502F1E301A9600C44587 /* Performance_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance_Testing.swift; sourceTree = "<group>"; };
+		BE2D50311E301A9600C44587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2D50371E3060A200C44587 /* DataModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelTests.swift; sourceTree = "<group>"; };
 		BE3E00651E05DDAD00525DB0 /* ApiResponseSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiResponseSample.json; sourceTree = "<group>"; };
+		BE4DCAFC1E2FF75200683C88 /* UITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITestCase.swift; sourceTree = "<group>"; };
 		BE5604A31E0C6BF70089EB6D /* FlickrErrorMessageExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrErrorMessageExtractor.swift; sourceTree = "<group>"; };
-		BE5604A51E0C6D490089EB6D /* SFPBJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFPBJsonTests.swift; sourceTree = "<group>"; };
+		BE5604A51E0C6D490089EB6D /* JsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonTests.swift; sourceTree = "<group>"; };
 		BE6974811DFE8E670071BEC6 /* FlickrOuterJsonWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrOuterJsonWrapper.swift; sourceTree = "<group>"; };
 		BE6974841DFEF72C0071BEC6 /* FlickrInnerJsonWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrInnerJsonWrapper.swift; sourceTree = "<group>"; };
 		BE69748E1DFF884D0071BEC6 /* PhotoGalleryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryItem.swift; sourceTree = "<group>"; };
@@ -88,11 +104,10 @@
 		BEDEDD5B1DF9BEAC0079CCBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEDEDD5E1DF9BEAC0079CCBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEDEDD601DF9BEAD0079CCBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEDEDD651DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleFlickrPhotoBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEDEDD691DF9BEAE0079CCBC /* SFPBPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFPBPerformanceTests.swift; sourceTree = "<group>"; };
+		BEDEDD651DF9BEAE0079CCBC /* Unit Testing.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Testing.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDEDD6B1DF9BEAE0079CCBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEDEDD701DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleFlickrPhotoBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEDEDD741DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFlickrPhotoBrowserUITests.swift; sourceTree = "<group>"; };
+		BEDEDD701DF9BEAE0079CCBC /* UI Testing.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UI Testing.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDEDD741DF9BEAE0079CCBC /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		BEDEDD761DF9BEAE0079CCBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEDEDD821DF9CA450079CCBC /* AppearanceDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceDefaults.swift; sourceTree = "<group>"; };
 		BEEB9FD51E09845300FF613F /* PlaceHolderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlaceHolderImage.jpg; sourceTree = "<group>"; };
@@ -101,6 +116,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BE2D502A1E301A9600C44587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEDEDD4B1DF9BEAC0079CCBC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +161,25 @@
 				FDA8300AAA2DEA60365CEF3C /* Pods-SimpleFlickrPhotoBrowserUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE2D50261E30189000C44587 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				BE2D502E1E301A9600C44587 /* Performance Testing */,
+				BEDEDD731DF9BEAE0079CCBC /* UI Testing */,
+				BEDEDD681DF9BEAE0079CCBC /* Unit Testing */,
+			);
+			name = Testing;
+			sourceTree = "<group>";
+		};
+		BE2D502E1E301A9600C44587 /* Performance Testing */ = {
+			isa = PBXGroup;
+			children = (
+				BE2D502F1E301A9600C44587 /* Performance_Testing.swift */,
+				BE2D50311E301A9600C44587 /* Info.plist */,
+			);
+			path = "Performance Testing";
 			sourceTree = "<group>";
 		};
 		BE6974831DFE8E740071BEC6 /* Models */ = {
@@ -208,8 +249,7 @@
 			children = (
 				BECCCA361E005C49002F8E67 /* README.md */,
 				BEDEDD501DF9BEAC0079CCBC /* Source */,
-				BEDEDD681DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests */,
-				BEDEDD731DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests */,
+				BE2D50261E30189000C44587 /* Testing */,
 				BEDEDD4F1DF9BEAC0079CCBC /* Products */,
 				88FA1713FB7B7C94AD401EEE /* Pods */,
 				E5879968A83B994424FADBB5 /* Frameworks */,
@@ -220,8 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				BEDEDD4E1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.app */,
-				BEDEDD651DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests.xctest */,
-				BEDEDD701DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.xctest */,
+				BEDEDD651DF9BEAE0079CCBC /* Unit Testing.xctest */,
+				BEDEDD701DF9BEAE0079CCBC /* UI Testing.xctest */,
+				BE2D502D1E301A9600C44587 /* Performance Testing.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,24 +283,28 @@
 			path = SimpleFlickrPhotoBrowser;
 			sourceTree = "<group>";
 		};
-		BEDEDD681DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests */ = {
+		BEDEDD681DF9BEAE0079CCBC /* Unit Testing */ = {
 			isa = PBXGroup;
 			children = (
-				BEDEDD691DF9BEAE0079CCBC /* SFPBPerformanceTests.swift */,
-				BE5604A51E0C6D490089EB6D /* SFPBJsonTests.swift */,
+				BE5604A51E0C6D490089EB6D /* JsonTests.swift */,
+				BE2D50101E30135600C44587 /* CallbackTests.swift */,
+				BE2D50371E3060A200C44587 /* DataModelTests.swift */,
 				BEDEDD6B1DF9BEAE0079CCBC /* Info.plist */,
 				BE2D4C141E05A7B9000C52E7 /* SinglePhotoJsonDataSample.json */,
 				BE3E00651E05DDAD00525DB0 /* ApiResponseSample.json */,
 			);
+			name = "Unit Testing";
 			path = SimpleFlickrPhotoBrowserTests;
 			sourceTree = "<group>";
 		};
-		BEDEDD731DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests */ = {
+		BEDEDD731DF9BEAE0079CCBC /* UI Testing */ = {
 			isa = PBXGroup;
 			children = (
-				BEDEDD741DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.swift */,
 				BEDEDD761DF9BEAE0079CCBC /* Info.plist */,
+				BEDEDD741DF9BEAE0079CCBC /* UITests.swift */,
+				BE4DCAFC1E2FF75200683C88 /* UITestCase.swift */,
 			);
+			name = "UI Testing";
 			path = SimpleFlickrPhotoBrowserUITests;
 			sourceTree = "<group>";
 		};
@@ -284,6 +329,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BE2D502C1E301A9600C44587 /* Performance Testing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE2D50341E301A9600C44587 /* Build configuration list for PBXNativeTarget "Performance Testing" */;
+			buildPhases = (
+				BE2D50291E301A9600C44587 /* Sources */,
+				BE2D502A1E301A9600C44587 /* Frameworks */,
+				BE2D502B1E301A9600C44587 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE2D50331E301A9600C44587 /* PBXTargetDependency */,
+			);
+			name = "Performance Testing";
+			productName = "Performance Testing";
+			productReference = BE2D502D1E301A9600C44587 /* Performance Testing.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BEDEDD4D1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEDEDD791DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "SimpleFlickrPhotoBrowser" */;
@@ -304,9 +367,9 @@
 			productReference = BEDEDD4E1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BEDEDD641DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests */ = {
+		BEDEDD641DF9BEAE0079CCBC /* Unit Testing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEDEDD7C1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "SimpleFlickrPhotoBrowserTests" */;
+			buildConfigurationList = BEDEDD7C1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "Unit Testing" */;
 			buildPhases = (
 				AF768D5A01CAAB7FFEA92991 /* [CP] Check Pods Manifest.lock */,
 				BEDEDD611DF9BEAE0079CCBC /* Sources */,
@@ -320,14 +383,14 @@
 			dependencies = (
 				BEDEDD671DF9BEAE0079CCBC /* PBXTargetDependency */,
 			);
-			name = SimpleFlickrPhotoBrowserTests;
+			name = "Unit Testing";
 			productName = SimpleFlickrPhotoBrowserTests;
-			productReference = BEDEDD651DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests.xctest */;
+			productReference = BEDEDD651DF9BEAE0079CCBC /* Unit Testing.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BEDEDD6F1DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests */ = {
+		BEDEDD6F1DF9BEAE0079CCBC /* UI Testing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEDEDD7F1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "SimpleFlickrPhotoBrowserUITests" */;
+			buildConfigurationList = BEDEDD7F1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "UI Testing" */;
 			buildPhases = (
 				D548FB63B887354715FF72FB /* [CP] Check Pods Manifest.lock */,
 				BEDEDD6C1DF9BEAE0079CCBC /* Sources */,
@@ -340,9 +403,9 @@
 			dependencies = (
 				BEDEDD721DF9BEAE0079CCBC /* PBXTargetDependency */,
 			);
-			name = SimpleFlickrPhotoBrowserUITests;
+			name = "UI Testing";
 			productName = SimpleFlickrPhotoBrowserUITests;
-			productReference = BEDEDD701DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.xctest */;
+			productReference = BEDEDD701DF9BEAE0079CCBC /* UI Testing.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -355,6 +418,12 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Stephen Stephens";
 				TargetAttributes = {
+					BE2D502C1E301A9600C44587 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = BLM9BZDLM3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BEDEDD4D1DF9BEAC0079CCBC;
+					};
 					BEDEDD4D1DF9BEAC0079CCBC = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = BLM9BZDLM3;
@@ -388,13 +457,21 @@
 			projectRoot = "";
 			targets = (
 				BEDEDD4D1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser */,
-				BEDEDD641DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserTests */,
-				BEDEDD6F1DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests */,
+				BEDEDD641DF9BEAE0079CCBC /* Unit Testing */,
+				BEDEDD6F1DF9BEAE0079CCBC /* UI Testing */,
+				BE2D502C1E301A9600C44587 /* Performance Testing */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE2D502B1E301A9600C44587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEDEDD4C1DF9BEAC0079CCBC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +625,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE2D50291E301A9600C44587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2D50301E301A9600C44587 /* Performance_Testing.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEDEDD4A1DF9BEAC0079CCBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,8 +661,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5604A61E0C6D490089EB6D /* SFPBJsonTests.swift in Sources */,
-				BEDEDD6A1DF9BEAE0079CCBC /* SFPBPerformanceTests.swift in Sources */,
+				BE2D50381E3060A200C44587 /* DataModelTests.swift in Sources */,
+				BE2D50141E3014F600C44587 /* CallbackTests.swift in Sources */,
+				BE5604A61E0C6D490089EB6D /* JsonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,13 +671,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDEDD751DF9BEAE0079CCBC /* SimpleFlickrPhotoBrowserUITests.swift in Sources */,
+				BEDEDD751DF9BEAE0079CCBC /* UITests.swift in Sources */,
+				BE4DCAFD1E2FF75300683C88 /* UITestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BE2D50331E301A9600C44587 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEDEDD4D1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser */;
+			targetProxy = BE2D50321E301A9600C44587 /* PBXContainerItemProxy */;
+		};
 		BEDEDD671DF9BEAE0079CCBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BEDEDD4D1DF9BEAC0079CCBC /* SimpleFlickrPhotoBrowser */;
@@ -624,6 +716,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BE2D50351E301A9600C44587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BLM9BZDLM3;
+				INFOPLIST_FILE = "Performance Testing/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "SS.Performance-Testing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFlickrPhotoBrowser.app/SimpleFlickrPhotoBrowser";
+			};
+			name = Debug;
+		};
+		BE2D50361E301A9600C44587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BLM9BZDLM3;
+				INFOPLIST_FILE = "Performance Testing/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "SS.Performance-Testing";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFlickrPhotoBrowser.app/SimpleFlickrPhotoBrowser";
+			};
+			name = Release;
+		};
 		BEDEDD771DF9BEAE0079CCBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -816,6 +936,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE2D50341E301A9600C44587 /* Build configuration list for PBXNativeTarget "Performance Testing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2D50351E301A9600C44587 /* Debug */,
+				BE2D50361E301A9600C44587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		BEDEDD491DF9BEAC0079CCBC /* Build configuration list for PBXProject "SimpleFlickrPhotoBrowser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -834,7 +962,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEDEDD7C1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "SimpleFlickrPhotoBrowserTests" */ = {
+		BEDEDD7C1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "Unit Testing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEDEDD7D1DF9BEAE0079CCBC /* Debug */,
@@ -843,7 +971,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEDEDD7F1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "SimpleFlickrPhotoBrowserUITests" */ = {
+		BEDEDD7F1DF9BEAE0079CCBC /* Build configuration list for PBXNativeTarget "UI Testing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEDEDD801DF9BEAE0079CCBC /* Debug */,
