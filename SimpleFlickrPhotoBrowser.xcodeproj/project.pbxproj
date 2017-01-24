@@ -275,8 +275,8 @@
 				BECCCA351E001E8B002F8E67 /* Api */,
 				BE6974831DFE8E740071BEC6 /* Models */,
 				BECCCA381E005CC3002F8E67 /* Interfaces */,
-				BEB8039A1E001282007FE28F /* View Controllers */,
 				BEDEDD5B1DF9BEAC0079CCBC /* Assets.xcassets */,
+				BEB8039A1E001282007FE28F /* View Controllers */,
 				BECCCA391E005D8C002F8E67 /* SupportingFiles */,
 			);
 			name = Source;
@@ -943,6 +943,7 @@
 				BE2D50361E301A9600C44587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEDEDD491DF9BEAC0079CCBC /* Build configuration list for PBXProject "SimpleFlickrPhotoBrowser" */ = {
 			isa = XCConfigurationList;
